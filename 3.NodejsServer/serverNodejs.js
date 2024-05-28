@@ -12,6 +12,7 @@ const server = http.createServer((req, res) => {
     if (method === "GET") {
       res.end("WELCOME TO HOME PAGE");
     } else {
+      res.statusCode = 404;
       res.end("BAD REQUEST");
     }
   } else if (url === "/fitness") {
