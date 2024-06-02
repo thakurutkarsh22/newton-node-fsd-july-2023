@@ -4,9 +4,12 @@ const PORT = 8080;
 const server = express();
 
 // express.json() is a middleware
+// use -> GET, PUT, POST, DELETE ... any request.
+// not using path means it is going to work for 100% of the INCOMING REQUEST.
 server.use(express.json());
 
 server.get("/", (req, res) => {
+  res.statusCode = 200;
   res.end("WELCOME TO HOME PAGE");
 });
 
