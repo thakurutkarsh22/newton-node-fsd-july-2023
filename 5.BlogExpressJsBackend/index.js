@@ -9,6 +9,9 @@ const homeRoute = require("./routes/home.routes");
 
 dotenv.config();
 
+// This will parse every incoming request to the server.
+server.use(express.json());
+
 // REGISTER ROUTES
 
 server.use("/api/v1/home", homeRoute);
