@@ -4,17 +4,21 @@ const express = require("express");
 const server = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 const homeRoute = require("./routes/home.routes");
 
 dotenv.config();
 
+// MIDDLEWARE
 // This will parse every incoming request to the server.
 server.use(express.json());
+server.use(cors()); // Allows the req to the server
 
 // REGISTER ROUTES
 
 server.use("/api/v1/home", homeRoute);
+
 // THIS IS DONE FOR THE BACKWORD COMPATIBILITY
 // server.use("/api/v2/home", homev2);
 
