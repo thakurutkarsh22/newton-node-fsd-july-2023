@@ -22,4 +22,17 @@ async function createuserservice(body) {
   }
 }
 
-module.exports = { createuserservice };
+async function getAllUsersService() {
+  try {
+    const results = await UserModel.find({});
+    return {
+      status: 200,
+      message: "user fetch successfull",
+      data: results,
+    };
+  } catch (error) {
+    throw new Error(" Cant GET USer Sadly !!! ");
+  }
+}
+
+module.exports = { createuserservice, getAllUsersService };

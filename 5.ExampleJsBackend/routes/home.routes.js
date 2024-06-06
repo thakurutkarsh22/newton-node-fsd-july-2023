@@ -3,6 +3,7 @@ const {
   getHome,
   getDetails,
   createUser,
+  getAllUsers,
 } = require("../controllers/home.controller");
 const {
   validateUserCreationMiddleware,
@@ -16,5 +17,9 @@ router.get("/getDetail", getDetails);
 // CRUD
 
 router.post("/createUser", validateUserCreationMiddleware, createUser);
+
+router.get("/getallUsers", getAllUsers);
+
+// router.get("/getUser/:id")
 
 module.exports = router;

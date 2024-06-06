@@ -1,4 +1,7 @@
-const { createuserservice } = require("../services/home.service");
+const {
+  createuserservice,
+  getAllUsersService,
+} = require("../services/home.service");
 
 function getHome(req, res) {
   res.json({
@@ -31,4 +34,20 @@ async function createUser(req, res, next) {
   }
 }
 
-module.exports = { getHome, getDetails, createUser };
+async function getAllUsers(req, res, next) {
+  try {
+    const { status, message, data } = await getAllUsersService();
+
+    res.json({
+      status,
+      message,
+      data,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Some error occured !!! " + error.message,
+    });
+  }
+}
+
+module.exports = { getHome, getDetails, createUser, getAllUsers };
