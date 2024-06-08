@@ -1,12 +1,13 @@
 const BlogsModel = require("../database/Models/Blogs.model");
 
-async function createBlogService(body) {
+async function createBlogService(body, username) {
   try {
     const { title, description, tag } = body;
     const newBLog = new BlogsModel({
       title,
       description,
       tag,
+      username,
     });
 
     await newBLog.save(); //

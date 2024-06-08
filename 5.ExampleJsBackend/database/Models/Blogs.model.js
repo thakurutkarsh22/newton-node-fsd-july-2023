@@ -30,6 +30,8 @@ const blogSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "users",
     },
+
+    username: { type: String },
   },
   { timestamps: true }
 );

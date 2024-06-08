@@ -5,7 +5,6 @@ async function loginUserService(body, secret) {
   try {
     const { username, password } = body;
     const foundUser = await UserModel.find({ username: username });
-    console.log(password, foundUser[0].password === password, "foundUser");
 
     if (foundUser && foundUser[0].password === password) {
       const payload = {
