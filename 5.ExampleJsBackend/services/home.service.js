@@ -1,4 +1,5 @@
 const UserModel = require("../database/Models/User.model");
+const { UserNotCreated } = require("../exceptions/UserNotValid");
 
 async function createuserservice(body) {
   try {

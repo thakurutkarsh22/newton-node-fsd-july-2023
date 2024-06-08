@@ -8,6 +8,7 @@ const cors = require("cors");
 
 const homeRoute = require("./routes/home.routes");
 const authRoute = require("./routes/auth.routes");
+const blogRoute = require("./routes/blog.routes");
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ server.use(cors()); // Allows the req to the server
 
 server.use("/api/v1/home", homeRoute);
 server.use("/api/v1/auth", authRoute);
+server.use("/api/v1/blog", blogRoute);
 
 // THIS IS DONE FOR THE BACKWORD COMPATIBILITY
 // server.use("/api/v2/home", homev2);
