@@ -9,7 +9,7 @@ async function loginUserService(body, secret) {
 
     if (foundUser && foundUser[0].password === password) {
       const payload = {
-        user: { id: foundUser._id },
+        user: { id: foundUser._id, name: foundUser[0].username },
       };
       const authToken = jwt.sign(payload, secret);
 
