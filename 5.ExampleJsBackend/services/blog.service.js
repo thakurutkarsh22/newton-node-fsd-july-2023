@@ -1,6 +1,6 @@
 const BlogsModel = require("../database/Models/Blogs.model");
 
-async function createBlogService(body, username) {
+async function createBlogService(body, username, userId) {
   try {
     const { title, description, tag } = body;
     const newBLog = new BlogsModel({
@@ -8,6 +8,7 @@ async function createBlogService(body, username) {
       description,
       tag,
       username,
+      user: userId,
     });
 
     await newBLog.save(); //

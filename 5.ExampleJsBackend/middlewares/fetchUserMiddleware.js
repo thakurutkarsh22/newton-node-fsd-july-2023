@@ -9,17 +9,18 @@ function fetchUser(req, res, next) {
       message: "Please Login !! ",
     });
   } else {
-    console.log("JWT_SECRET", JWT_SECRET);
     jwt.verify(token, JWT_SECRET, (error, decodedString) => {
       if (error) {
         res.status(401).json({
           message: "Re-login again",
         });
       } else {
-        // console.log(decodedString, "decodedString");
+        console.log(decodedString, "decodedString");
         const username = decodedString.user.name;
+        const userId = decodedString.user.id;
         req.xyzUser = username;
-
+        req.userId = userId;
+        console.log(userId, "decoded user ID");
         next();
       }
     });
