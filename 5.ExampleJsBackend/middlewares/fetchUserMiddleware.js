@@ -18,8 +18,10 @@ function fetchUser(req, res, next) {
         console.log(decodedString, "decodedString");
         const username = decodedString.user.name;
         const userId = decodedString.user.id;
+        const role = decodedString.role;
         req.xyzUser = username;
         req.userId = userId;
+        req.role = role;
         console.log(userId, "decoded user ID");
         next();
       }

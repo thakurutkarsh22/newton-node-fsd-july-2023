@@ -1,14 +1,16 @@
 const UserModel = require("../database/Models/User.model");
 const { UserNotCreated } = require("../exceptions/UserNotValid");
+const bcrypt = require("bcrypt");
 
 async function createuserservice(body) {
   try {
     const { username, password, email } = body;
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     // THIS LINE CREATE USER AND VALIDATE ACCORDING TO USER SCHEMA
     const userObj = new UserModel({
       username: username,
-      password: password,
+      password: hashedPassword,
       email: email,
     });
 
